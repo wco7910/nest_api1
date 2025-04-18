@@ -1,0 +1,14 @@
+services:
+  app:
+    container_name: ${PROJECT_NAME}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /home/files/${PROJECT_NAME}/uploads:/usr/src/app/uploads
+      - /home/files/${PROJECT_NAME}/compressed:/usr/src/app/compressed
+      - /home/files/${PROJECT_NAME}/stroke:/usr/src/app/stroke
+    ports:
+      - ${PORT}:${PORT}
+    environment:
+      - NODE_ENV=${NODE_ENV}
